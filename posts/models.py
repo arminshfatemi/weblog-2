@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class PostModel(models.Model):
     blogger = models.ForeignKey(BloggerModel, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=50, )
-    text = models.CharField(blank=True, )
+    text = models.TextField(blank=True, )
     description = models.CharField(max_length=35, )
     likes_count = models.IntegerField(default=0, )
     comment_count = models.IntegerField(default=0, )
