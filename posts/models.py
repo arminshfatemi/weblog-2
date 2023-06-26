@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 class PostModel(models.Model):
     blogger = models.ForeignKey(BloggerModel, on_delete=models.DO_NOTHING)
     title = models.CharField(max_length=50, )
-    text = models.TextField(blank=True, )
     description = models.CharField(max_length=35, )
+    text = models.TextField(blank=True, )
     likes_count = models.IntegerField(default=0, )
     comment_count = models.IntegerField(default=0, )
     is_enable = models.BooleanField(default=True, )
@@ -20,13 +20,16 @@ class PostModel(models.Model):
     photo_4 = models.ImageField(upload_to='photos/posts/%Y/%m/%d/', blank=True)
 
     def __str__(self):
-        return self.title
+        return f'{self.title}'
 
 
 class CommentModel(models.Model):
+    author = models.ForeignKey(BloggerModel, on_delete=models.DO_NOTHING, related_name='comments')
     post = models.ForeignKey(PostModel, on_delete=models.DO_NOTHING, )
     text = models.TextField(blank=False, )
-    created_time = models.DateTimeField(auto_now_add=True, )
+    created_time = models.DateTimeField(auto_now_add=True, editable=True)
 
     def __str__(self):
-        return self.text
+        return f'{self.text}'
+
+

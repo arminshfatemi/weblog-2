@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>all posts</title>
 </head>
 <body>
-$END$
+
+{% for p in post %}
+    <h1>{{ p.title }}</h1>
+    <p>{{ p.text }}</p>
+    <p><span>blogger: </span>{{ p.blogger }}</p>
+    <hr>
+{% endfor %}
+
 </body>
 </html>
