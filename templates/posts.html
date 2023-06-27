@@ -6,12 +6,18 @@
 </head>
 <body>
 
+<a href="loging/">Loging</a>
+<a href="register/">Signup</a>
+<a href="logout/"></a>
+<hr>
 {% for p in post %}
-    <h1>{{ p.title }}</h1>
+    <h1><a href="/postdetail/{{ p.id }}/">{{ p.title }}</a></h1>
     <p>{{ p.text }}</p>
     <p><span>blogger: </span>{{ p.blogger }}</p>
     <hr>
 {% endfor %}
+
+
 
 </body>
 </html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+    <h1>Title: {{ post.title }}</h1>
+    <h3>Description: {{ post.description }}</h3>
+
+    <p>{{ post.text }}</p>
+    <p>blogger: <b>{{ post.blogger }}</b></p>
+    <hr>
+</div>
+    {% for c in comment %}
+        <p>comment writer:<b> {{ c.author }}</b></p>
+        <p>{{ c.text }}</p>
+        <hr>
+    {% endfor %}
+
+
+
+
+</body>
+</html>
