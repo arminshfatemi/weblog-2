@@ -1,0 +1,12 @@
+{% load static %}
+
+<header >
+    <a href=""><div>Login</div></a>
+    <a href=""><div>Logout</div></a>
+    <a href=""><div>signin</div></a>
+    <form action="{% url 'search' %}">
+        <button type="submit"><i></i></button>
+        <input type="text" aria-label="Username" aria-describedby="basic-addon1" placeholder="search.." name="search_text">
+    </form>
+    <hr>
+</header>

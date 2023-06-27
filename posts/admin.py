@@ -20,7 +20,13 @@ class PostAdmin(admin.ModelAdmin):
 
     inlines = [CommentAdmin]
 
-    def save_model(self, request, obj, form, change) -> None:
+
+# to save blogger of post it works when a blogger is login for now
+# if you are a super user it will cuse a error
+# and its just for post not for comment
+    def save_model(self, request, obj, form, change):
+        # obj.blogger = request.user
+        # obj.save()
         obj.blogger = BloggerModel.objects.filter(user=request.user).first()
         return super().save_model(request, obj, form, change)
 
@@ -40,4 +46,3 @@ class BloggerAdmin(admin.ModelAdmin):
     search_fields = ['name', 'user']
     readonly_fields = ['post_count']
     list_display = ['name', 'user', 'register_date', 'post_count']
-

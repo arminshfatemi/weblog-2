@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,19 +6,18 @@
     <title>all posts</title>
 </head>
 <body>
+{% block content %}
 
-<a href="loging/">Loging</a>
-<a href="register/">Signup</a>
-<a href="logout/"></a>
-<hr>
 {% for p in post %}
     <h1><a href="/postdetail/{{ p.id }}/">{{ p.title }}</a></h1>
     <p>{{ p.text }}</p>
     <p><span>blogger: </span>{{ p.blogger }}</p>
+    <p>likes: {{ p.likes_count }}</p>
+    <p>comments: {{ p.comment_count }}</p>
     <hr>
 {% endfor %}
 
-
+{% endblock %}
 
 </body>
 </html>
